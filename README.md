@@ -1,4 +1,6 @@
-# devmind
+# Devmind
+
+Devmind is a application for courses management by list. This project is live streamed in [Twitch](https://twitch.tv/pablosirera).
 
 ## Build Setup
 
