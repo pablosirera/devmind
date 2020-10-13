@@ -41,6 +41,11 @@ export default {
     '@nuxtjs/svg',
   ],
 
+  colorMode: {
+    preference: 'dark',
+    fallback: 'light',
+  },
+
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
