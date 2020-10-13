@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
+    "storybook": "nuxt storybook",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",

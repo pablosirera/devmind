@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div>
+      <BaseLink />
       <Logo />
       <h1 class="title">devmind</h1>
       <div class="links">
@@ -26,7 +27,12 @@
 </template>
 
 <script>
-export default {}
+import BaseLink from '@/components/ui/BaseLink'
+export default {
+  components: {
+    BaseLink,
+  },
+}
 </script>
 
 <style>
