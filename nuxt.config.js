@@ -27,6 +27,8 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://color-mode.nuxtjs.org
+    '@nuxtjs/color-mode',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -35,6 +37,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // https://www.npmjs.com/package/@nuxtjs/svg
+    '@nuxtjs/svg',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
