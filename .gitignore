@@ -19,6 +19,10 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
+# storybook
+.nuxt-storybook
+storybook-static
+
 # nyc test coverage
 .nyc_output
 
