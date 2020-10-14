@@ -1,12 +1,15 @@
 <template>
   <div>
-    {{ $colorMode.preference }}
     <IconDark
       v-if="$colorMode.preference !== 'dark'"
       class="cursor-pointer"
       @click="changeTheme('dark')"
     />
-    <IconLight v-else class="cursor-pointer" @click="changeTheme('light')" />
+    <IconLight
+      v-else
+      class="cursor-pointer fill-white text-white"
+      @click="changeTheme('light')"
+    />
   </div>
 </template>
 
@@ -19,7 +22,6 @@ export default {
   },
   methods: {
     changeTheme(theme) {
-      console.log(theme)
       this.$colorMode.preference = theme
     },
   },

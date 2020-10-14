@@ -44,6 +44,7 @@ export default {
   colorMode: {
     preference: 'dark',
     fallback: 'light',
+    classSuffix: '',
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
