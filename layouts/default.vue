@@ -4,7 +4,7 @@
     <main class="main bg-light dark:bg-dark">
       <Nuxt />
     </main>
-    <BaseFooter />
+    <BaseFooter class="md:hidden" />
   </div>
 </template>
 
@@ -23,6 +23,12 @@ export default {
 <style>
 .main {
   height: calc(100% - var(--header) - var(--footer));
+}
+
+@media (min-width: 768px) {
+  .main {
+    height: calc(100% - var(--header));
+  }
 }
 
 html {
