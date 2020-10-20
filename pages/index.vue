@@ -1,5 +1,5 @@
 <template>
-  <div class="container dark:bg-black">
+  <div class="container">
     <div>
       <ColorSwitch />
       <BaseLink />
