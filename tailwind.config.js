@@ -12,10 +12,9 @@ module.exports = {
         'gray-main': {
           300: '#EAEDF2',
         },
-        // TODO: review this colors, maybe are gray
         'blue-main': {
-          800: '#1C1C24',
-          900: '#131419',
+          800: '#0d1131',
+          900: '#070919',
         },
       },
     },
