@@ -6,14 +6,16 @@
     <h1 class="text-center text-3xl font-bold">Devmind</h1>
 
     <div
-      class="login-body mt-12 pt-56 h-full flex justify-center bg-light dark:bg-blue-main-800"
+      class="login-body mt-12 pt-56 h-full flex flex-col items-center bg-light dark:bg-blue-main-800"
     >
+      <SocialLoginButton text="Iniciar sesión con google" />
       <p>iniciar sesión con google</p>
     </div>
   </div>
 </template>
 
 <script>
+import SocialLoginButton from '~/components/auth/SocialLoginButton.vue'
 import ColorSwitch from '~/components/ui/ColorSwitch.vue'
 
 export default {
@@ -21,6 +23,7 @@ export default {
   layout: 'auth',
   components: {
     ColorSwitch,
+    SocialLoginButton,
   },
 }
 </script>
