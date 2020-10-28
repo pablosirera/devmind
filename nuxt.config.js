@@ -19,6 +19,10 @@ export default {
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
+  env: {
+    VUE_APP_FIREBASE_KEY: process.env.VUE_APP_FIREBASE_KEY,
+  },
+
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/eslint
@@ -39,12 +43,34 @@ export default {
     '@nuxtjs/pwa',
     // https://www.npmjs.com/package/@nuxtjs/svg
     '@nuxtjs/svg',
+    // https://firebase.nuxtjs.org/
+    '@nuxtjs/firebase',
   ],
 
   colorMode: {
     preference: 'dark',
     fallback: 'light',
     classSuffix: '',
+  },
+
+  firebase: {
+    config: {
+      apiKey: process.env.VUE_APP_FIREBASE_KEY,
+      authDomain: 'devmind-twitch.firebaseapp.com',
+      databaseURL: 'https://devmind-twitch.firebaseio.com',
+      projectId: 'devmind-twitch',
+      storageBucket: 'devmind-twitch.appspot.com',
+      messagingSenderId: '688715005177',
+      appId: '1:688715005177:web:0b4f70b06de7851a347628',
+      measurementId: 'G-KKY338JQ98',
+    },
+    services: {
+      auth: true,
+      firestore: true,
+      storage: true,
+      analytics: true,
+      perfomance: true,
+    },
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
