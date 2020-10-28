@@ -1,5 +1,9 @@
 <template>
-  <button class="rounded-full border py-2 px-6 flex items-center" :class="type">
+  <button
+    class="rounded-full border py-2 px-6 flex items-center"
+    :class="type"
+    @click="$emit('click')"
+  >
     <component :is="socialComponent" class="w-6 mr-2" />
     {{ text }}
   </button>

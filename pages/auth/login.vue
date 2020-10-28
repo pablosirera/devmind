@@ -8,7 +8,10 @@
     <div
       class="login-body mt-12 pt-56 h-full flex flex-col items-center bg-light dark:bg-blue-main-800"
     >
-      <SocialLoginButton text="Iniciar sesión con google" />
+      <SocialLoginButton
+        text="Iniciar sesión con google"
+        @click="loginWithGoogle"
+      />
       <p>iniciar sesión con google</p>
     </div>
   </div>
@@ -24,6 +27,18 @@ export default {
   components: {
     ColorSwitch,
     SocialLoginButton,
+  },
+  methods: {
+    async loginWithGoogle() {
+      try {
+        const provider = new this.$fireAuthObj.GoogleAuthProvider()
+        const result = await this.$fireAuth.signInWithPopup(provider)
+        console.log(result)
+      } catch (error) {
+        // TODO: show toast
+        console.error('login error', error)
+      }
+    },
   },
 }
 </script>

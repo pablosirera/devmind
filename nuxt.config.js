@@ -19,6 +19,10 @@ export default {
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
+  env: {
+    VUE_APP_FIREBASE_KEY: process.env.VUE_APP_FIREBASE_KEY,
+  },
+
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/eslint
@@ -71,10 +75,6 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
-
-  env: {
-    VUE_APP_FIREBASE_KEY: process.env.VUE_APP_FIREBASE_KEY,
-  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
