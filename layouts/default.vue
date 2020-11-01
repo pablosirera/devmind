@@ -1,7 +1,7 @@
 <template>
-  <div class="h-screen">
+  <div class="h-screen main-container">
     <BaseHeader />
-    <main class="main bg-light dark:bg-dark">
+    <main class="bg-light dark:bg-dark">
       <Nuxt />
     </main>
     <BaseFooter class="md:hidden" />
@@ -19,34 +19,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.main {
-  height: calc(100% - var(--header) - var(--footer));
-}
-
-@media (min-width: 768px) {
-  .main {
-    height: calc(100% - var(--header));
-  }
-}
-
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
-</style>
