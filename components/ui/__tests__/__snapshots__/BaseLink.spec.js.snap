@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI Components -> BaseLink should match snapshot 1`] = `
+<a
+  class="bg-blue-200 p-2 rounded"
+  href="https://pablosirera.com"
+>
+  
+  Ir a la web
+
+</a>
+`;

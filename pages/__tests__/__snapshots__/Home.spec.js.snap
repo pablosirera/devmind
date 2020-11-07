@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home View should match snapshot 1`] = `
+<div>
+  <colorswitch-stub />
+   
+  <logo-stub />
+</div>
+`;

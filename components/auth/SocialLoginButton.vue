@@ -13,7 +13,7 @@
 export default {
   name: 'SocialLoginButton',
   components: {
-    GoogleIcon: () => import('@/assets/icons/google.svg?inline'),
+    GoogleIcon: () => import('../../assets/icons/google.svg?inline'),
   },
   props: {
     type: {
