@@ -31,6 +31,8 @@ Default.args = {
 
 export const Github = Template.bind({})
 Github.args = {
-  type: 'github',
   text: 'Github Button',
+  type: socialOptions.types[1],
 }
+
+// TODO: show all types on same page
