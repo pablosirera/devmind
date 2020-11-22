@@ -12,6 +12,11 @@
         text="Iniciar sesión con google"
         @click="loginWithGoogle"
       />
+      <SocialLoginButton
+        text="Iniciar sesión con github"
+        type="github"
+        @click="loginWithGoogle"
+      />
       <p>iniciar sesión con google</p>
     </div>
   </div>

@@ -53,6 +53,14 @@ export default {
     classSuffix: '',
   },
 
+  storybook: {
+    addons: [
+      '@storybook/addon-controls',
+      '@storybook/addon-backgrounds',
+      '@storybook/addon-docs',
+    ],
+  },
+
   firebase: {
     config: {
       apiKey: process.env.VUE_APP_FIREBASE_KEY,
