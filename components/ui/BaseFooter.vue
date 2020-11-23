@@ -17,29 +17,33 @@
 </template>
 
 <script>
+import IconHome from '@/components/icons/IconHome.vue'
+import IconAdd from '@/components/icons/IconAdd.vue'
+import IconProfile from '@/components/icons/IconProfile.vue'
+
 export default {
   name: 'BaseFooter',
   components: {
-    HomeIcon: () => import('@/assets/icons/home.svg?inline'),
-    AddIcon: () => import('@/assets/icons/add.svg?inline'),
-    ProfileIcon: () => import('@/assets/icons/profile.svg?inline'),
+    IconHome,
+    IconAdd,
+    IconProfile,
   },
   data: () => ({
     links: [
       {
         name: 'Inicio',
         url: '/',
-        component: 'HomeIcon',
+        component: 'IconHome',
       },
       {
         name: 'Nuevo',
         url: '/add',
-        component: 'AddIcon',
+        component: 'IconAdd',
       },
       {
         name: 'Perfil',
         url: '/profile',
-        component: 'ProfileIcon',
+        component: 'IconProfile',
       },
     ],
   }),

@@ -4,7 +4,7 @@
     :class="type"
     @click="$emit('click')"
   >
-    <component :is="socialComponent" class="w-6 mr-2 fill-white" />
+    <component :is="socialComponent" class="w-6 h-6 mr-2 fill-white" />
     {{ text }}
   </button>
 </template>
@@ -13,8 +13,8 @@
 export default {
   name: 'SocialLoginButton',
   components: {
-    GoogleIcon: () => import('../../assets/icons/google.svg?inline'),
-    GithubIcon: () => import('../../assets/icons/github.svg?inline'),
+    IconGoogle: () => import('@/components/icons/IconGoogle.vue'),
+    IconGithub: () => import('@/components/icons/IconGithub.vue'),
   },
   props: {
     type: {
@@ -29,8 +29,8 @@ export default {
   },
   data: () => ({
     socialOptions: {
-      google: 'GoogleIcon',
-      github: 'GithubIcon',
+      google: 'IconGoogle',
+      github: 'IconGithub',
     },
   }),
   computed: {

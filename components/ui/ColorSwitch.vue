@@ -1,15 +1,12 @@
 <template>
   <div>
-    <IconDark
-      v-if="$colorMode.preference !== 'dark'"
-      class="cursor-pointer"
-      @click="changeTheme('dark')"
-    />
-    <IconLight
-      v-else
-      class="cursor-pointer fill-white text-white"
-      @click="changeTheme('light')"
-    />
+    <span v-if="$colorMode.preference !== 'dark'" @click="changeTheme('dark')">
+      <IconDark class="cursor-pointer w-6 h-6" />
+    </span>
+
+    <span v-else @click="changeTheme('light')">
+      <IconLight class="cursor-pointer fill-white text-white w-6 h-6" />
+    </span>
   </div>
 </template>
 
@@ -17,8 +14,8 @@
 export default {
   name: 'ColorSwitch',
   components: {
-    IconDark: () => import('@/assets/icons/dark.svg?inline'),
-    IconLight: () => import('@/assets/icons/light.svg?inline'),
+    IconDark: () => import('@/components/icons/IconDark.vue'),
+    IconLight: () => import('@/components/icons/IconLight.vue'),
   },
   methods: {
     changeTheme(theme) {

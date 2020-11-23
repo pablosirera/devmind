@@ -1,7 +1,7 @@
 <template>
   <header class="header dark:text-white dark:bg-blue-main-800">
     <nuxt-link class="flex items-center" to="/">
-      <LogoIcon class="w-5 mr-3" />
+      <LogoIcon class="w-5 h-5 mr-3" />
       <h1 class="font-bold text-base">Devmind</h1>
     </nuxt-link>
 
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import LogoIcon from '@/assets/icons/tv.svg?inline'
+import LogoIcon from '@/components/icons/IconTv.vue'
 
 export default {
   name: 'BaseHeader',
