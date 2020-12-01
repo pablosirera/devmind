@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import ColorSwitch from '~/components/ui/ColorSwitch.vue'
 import RegisterForm from '~/components/auth/RegisterForm.vue'
 import LoginForm from '~/components/auth/LoginForm.vue'
@@ -41,6 +42,9 @@ export default {
     isRegisterMode: false,
   }),
   methods: {
+    ...mapMutations({
+      setUser: 'authentication/setUser',
+    }),
     loginWith(type) {
       type === 'google' ? this.loginWithGoogle() : this.loginWithGithub()
     },
@@ -48,7 +52,8 @@ export default {
       try {
         const provider = new this.$fireAuthObj.GoogleAuthProvider()
         const result = await this.$fireAuth.signInWithPopup(provider)
-        console.log(result)
+        const user = result.user
+        this.setUser(user)
       } catch (error) {
         // TODO: show toast
         console.error('login error', error)
@@ -58,7 +63,8 @@ export default {
       try {
         const provider = new this.$fireAuthObj.GithubAuthProvider()
         const result = await this.$fireAuth.signInWithPopup(provider)
-        console.log(result)
+        const user = result.user
+        this.setUser(user)
       } catch (error) {
         // TODO: show toast
         console.error('login error', error)
