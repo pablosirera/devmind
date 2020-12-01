@@ -1,39 +1,49 @@
 <template>
-  <div class="h-full overflow-hidden">
-    <div class="flex justify-end p-4">
-      <ColorSwitch />
-    </div>
-    <h1 class="text-center text-3xl font-bold">Devmind</h1>
+  <div class="h-full overflow-x-hidden flex flex-col">
+    <section>
+      <div
+        class="flex justify-end p-4"
+        :class="{ 'justify-between': isRegisterMode }"
+      >
+        <p v-if="isRegisterMode" class="cursor-pointer" @click="hideRegister()">
+          volver
+        </p>
+        <ColorSwitch />
+      </div>
+      <h1 class="text-center text-3xl font-bold">Devmind</h1>
+    </section>
 
-    <div
-      class="login-body mt-12 pt-56 h-full flex flex-col items-center bg-light dark:bg-blue-main-800"
-    >
-      <SocialLoginButton
-        text="Iniciar sesión con google"
-        @click="loginWithGoogle"
+    <div class="login-body mt-12 h-full bg-light dark:bg-gray-main-1000">
+      <LoginForm
+        v-if="!isRegisterMode"
+        @login="loginWith"
+        @show-register="showRegister()"
       />
-      <SocialLoginButton
-        text="Iniciar sesión con github"
-        type="github"
-        @click="loginWithGoogle"
-      />
-      <p>iniciar sesión con google</p>
+      <RegisterForm v-else @register="registerUser" />
     </div>
   </div>
 </template>
 
 <script>
-import SocialLoginButton from '~/components/auth/SocialLoginButton.vue'
 import ColorSwitch from '~/components/ui/ColorSwitch.vue'
+import RegisterForm from '~/components/auth/RegisterForm.vue'
+import LoginForm from '~/components/auth/LoginForm.vue'
 
 export default {
   name: 'Login',
   layout: 'auth',
   components: {
     ColorSwitch,
-    SocialLoginButton,
+    RegisterForm,
+    LoginForm,
   },
+  data: () => ({
+    isRegisterMode: false,
+  }),
   methods: {
+    loginWith(type) {
+      type === 'google' ? this.loginWithGoogle() : this.loginWithGithub()
+    },
     async loginWithGoogle() {
       try {
         const provider = new this.$fireAuthObj.GoogleAuthProvider()
@@ -43,6 +53,40 @@ export default {
         // TODO: show toast
         console.error('login error', error)
       }
+    },
+    async loginWithGithub() {
+      try {
+        const provider = new this.$fireAuthObj.GithubAuthProvider()
+        const result = await this.$fireAuth.signInWithPopup(provider)
+        console.log(result)
+      } catch (error) {
+        // TODO: show toast
+        console.error('login error', error)
+      }
+    },
+    showRegister() {
+      this.isRegisterMode = true
+    },
+    hideRegister() {
+      this.isRegisterMode = false
+    },
+    async registerUser(data) {
+      try {
+        await this.$fireAuth.createUserWithEmailAndPassword(
+          data.email,
+          data.pass
+        )
+        await this.updateNameUser(data.name)
+        console.log(this.$fireAuth.currentUser)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    updateNameUser(name) {
+      const user = this.$fireAuth.currentUser
+      user.updateProfile({
+        displayName: name,
+      })
     },
   },
 }

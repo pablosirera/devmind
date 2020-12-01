@@ -1,5 +1,5 @@
 <template>
-  <header class="header dark:text-white dark:bg-blue-main-800">
+  <header class="header dark:text-white dark:bg-gray-main-1000">
     <nuxt-link class="flex items-center" to="/">
       <LogoIcon class="w-5 h-5 mr-3" />
       <h1 class="font-bold text-base">Devmind</h1>
@@ -30,7 +30,5 @@ export default {
 <style scoped>
 .header {
   @apply flex items-center justify-between p-4;
-
-  height: var(--header);
 }
 </style>
