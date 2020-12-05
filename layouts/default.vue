@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen main-container">
     <BaseHeader />
-    <main class="bg-light dark:bg-dark">
+    <main class="bg-light dark:text-white dark:bg-dark">
       <Nuxt />
     </main>
     <BaseFooter class="md:hidden" />

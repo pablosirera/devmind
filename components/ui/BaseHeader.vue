@@ -5,24 +5,29 @@
       <h1 class="font-bold text-base">Devmind</h1>
     </nuxt-link>
 
-    <nuxt-link class="hidden md:block" to="/profile">
-      <!-- TODO: translate alt text -->
-      <img
-        class="w-10 rounded-full"
-        src="@/assets/images/defaultImage.jpg"
-        alt="Imagen del usuario"
-      />
-    </nuxt-link>
+    <section class="flex items-center">
+      <ColorSwitch />
+      <nuxt-link class="hidden ml-4 md:block" to="/profile">
+        <!-- TODO: translate alt text -->
+        <img
+          class="w-10 rounded-full"
+          src="@/assets/images/defaultImage.jpg"
+          alt="Imagen del usuario"
+        />
+      </nuxt-link>
+    </section>
   </header>
 </template>
 
 <script>
 import LogoIcon from '@/components/icons/IconTv.vue'
+import ColorSwitch from '@/components/ui/ColorSwitch.vue'
 
 export default {
   name: 'BaseHeader',
   components: {
     LogoIcon,
+    ColorSwitch,
   },
 }
 </script>

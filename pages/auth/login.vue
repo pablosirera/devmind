@@ -48,23 +48,21 @@ export default {
     loginWith(type) {
       type === 'google' ? this.loginWithGoogle() : this.loginWithGithub()
     },
-    async loginWithGoogle() {
-      try {
-        const provider = new this.$fireAuthObj.GoogleAuthProvider()
-        const result = await this.$fireAuth.signInWithPopup(provider)
-        const user = result.user
-        this.setUser(user)
-      } catch (error) {
-        // TODO: show toast
-        console.error('login error', error)
-      }
+    loginWithGoogle() {
+      const provider = new this.$fireAuthObj.GoogleAuthProvider()
+      this.loginPopup(provider)
     },
-    async loginWithGithub() {
+    loginWithGithub() {
+      const provider = new this.$fireAuthObj.GithubAuthProvider()
+      this.loginPopup(provider)
+    },
+    async loginPopup(provider) {
       try {
-        const provider = new this.$fireAuthObj.GithubAuthProvider()
         const result = await this.$fireAuth.signInWithPopup(provider)
         const user = result.user
         this.setUser(user)
+        // TODO: redirect to home
+        this.$router.push(`/profile/${user.uid}`)
       } catch (error) {
         // TODO: show toast
         console.error('login error', error)
