@@ -32,12 +32,12 @@ import LoginForm from '~/components/auth/LoginForm.vue'
 
 export default {
   name: 'Login',
-  layout: 'auth',
   components: {
     ColorSwitch,
     RegisterForm,
     LoginForm,
   },
+  layout: 'auth',
   data: () => ({
     isRegisterMode: false,
   }),
