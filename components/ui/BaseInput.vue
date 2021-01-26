@@ -10,6 +10,7 @@
     <input
       v-model="inputValue"
       :type="type"
+      :placeholder="placeholder"
       class="rounded-2xl outline-none font-bold text-sm py-3 px-2 bg-gray-main-400 text-gray-main-900 dark:text-white dark:bg-gray-main-850"
       @input="$emit('input', inputValue)"
     />
@@ -33,6 +34,10 @@ export default {
       default: 'text',
     },
     value: {
+      type: String,
+      default: '',
+    },
+    placeholder: {
       type: String,
       default: '',
     },
