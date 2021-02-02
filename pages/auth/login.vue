@@ -26,16 +26,17 @@
 
 <script>
 import { mapMutations } from 'vuex'
+import { ROUTES } from '~/constants/routes'
 import ColorSwitch from '~/components/ui/ColorSwitch.vue'
-import RegisterForm from '~/components/auth/RegisterForm.vue'
 import LoginForm from '~/components/auth/LoginForm.vue'
+import RegisterForm from '~/components/auth/RegisterForm.vue'
 
 export default {
   name: 'Login',
   components: {
     ColorSwitch,
-    RegisterForm,
     LoginForm,
+    RegisterForm,
   },
   layout: 'auth',
   data: () => ({
@@ -49,20 +50,19 @@ export default {
       type === 'google' ? this.loginWithGoogle() : this.loginWithGithub()
     },
     loginWithGoogle() {
-      const provider = new this.$fireAuthObj.GoogleAuthProvider()
+      const provider = new this.$fireModule.auth.GoogleAuthProvider()
       this.loginPopup(provider)
     },
     loginWithGithub() {
-      const provider = new this.$fireAuthObj.GithubAuthProvider()
+      const provider = new this.$fireModule.auth.GithubAuthProvider()
       this.loginPopup(provider)
     },
     async loginPopup(provider) {
       try {
-        const result = await this.$fireAuth.signInWithPopup(provider)
+        const result = await this.$fire.auth.signInWithPopup(provider)
         const user = result.user
         this.setUser(user)
-        // TODO: redirect to home
-        this.$router.push(`/profile/${user.uid}`)
+        this.$router.push(ROUTES.HOME)
       } catch (error) {
         // TODO: show toast
         console.error('login error', error)
