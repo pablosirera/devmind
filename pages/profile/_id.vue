@@ -3,23 +3,11 @@
     <h1 class="font-bold text-2xl pb-6">Perfil</h1>
 
     <div class="md:block grid grid-cols-2 gap-3">
-      <div
-        class="profile-image-wrapper rounded-2xl flex flex-col items-center p-2 bg-white dark:bg-gray-main-850"
-      >
-        <img
-          v-if="user && user.photo"
-          :src="user.photo"
-          class="w-full rounded-2xl"
-          alt="foto perfil usuario"
-        />
-        <img
-          v-else
-          class="w-full rounded-2xl"
-          src="@/assets/images/defaultImage.jpg"
-          alt="imagen por defecto ususario"
-        />
-        <BaseButton class="mt-2" size="sm">+ Subir nueva foto</BaseButton>
-      </div>
+      <ImageCard
+        :image-src="getUserImage()"
+        image-alt="foto perfil usuario"
+        button-text="+ Subir nueva foto"
+      />
 
       <div class="md:mt-4">
         <p class="text-xs text-gray-main-800 font-bold mb-3">Redes sociales</p>
@@ -56,6 +44,7 @@ import IconAdd from '~/components/icons/IconAdd.vue'
 import BaseInput from '~/components/ui/BaseInput.vue'
 import IconCheck from '~/components/icons/IconCheck.vue'
 import IconTwitter from '~/components/icons/IconTwitter.vue'
+import ImageCard from '~/components/ui/ImageCard.vue'
 
 export default {
   name: 'ProfileDetail',
@@ -67,6 +56,7 @@ export default {
     IconCheck,
     IconGoogle,
     IconTwitter,
+    ImageCard,
   },
   asyncData({ store }) {
     const user = store.state.authentication.user
@@ -110,13 +100,9 @@ export default {
         return 'IconGithub'
       }
     },
+    getUserImage() {
+      return this.user && this.user.photo ? this.user.photo : ''
+    },
   },
 }
 </script>
-
-<style scoped>
-.profile-image-wrapper {
-  max-width: 200px;
-  min-width: 160px;
-}
-</style>
