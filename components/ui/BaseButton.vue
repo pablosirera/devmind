@@ -2,6 +2,7 @@
   <button
     class="button hover:bg-violet-main-700 hover:text-white"
     :class="buttonClasses"
+    @click="$emit('click')"
   >
     <slot />
   </button>

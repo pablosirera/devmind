@@ -18,7 +18,7 @@
         </div>
       </ImageCard>
     </section>
-    <BaseButton expanded fill>Crear lista</BaseButton>
+    <BaseButton expanded fill @click="goToNewList()">Crear lista</BaseButton>
   </section>
 </template>
 
@@ -69,6 +69,11 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    goToNewList() {
+      this.$router.push('/new-list')
+    },
   },
 }
 </script>
