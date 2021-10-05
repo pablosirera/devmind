@@ -44,7 +44,7 @@
     "@nuxtjs/tailwindcss": "^3.2.0",
     "@storybook/addon-backgrounds": "^6.1.14",
     "@storybook/addon-controls": "^6.1.14",
-    "@storybook/addon-docs": "^6.1.14",
+    "@storybook/addon-docs": "^6.3.9",
     "@vue/test-utils": "^1.1.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
