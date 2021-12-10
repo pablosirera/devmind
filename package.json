@@ -42,7 +42,7 @@
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/svg": "^0.1.12",
     "@nuxtjs/tailwindcss": "^3.2.0",
-    "@storybook/addon-backgrounds": "^6.1.14",
+    "@storybook/addon-backgrounds": "^6.4.9",
     "@storybook/addon-controls": "^6.1.14",
     "@storybook/addon-docs": "^6.1.14",
     "@vue/test-utils": "^1.1.1",
